@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		DB9E5DA62E67280A0073C6BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB9E5D902E6728070073C6BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB9E5D972E6728080073C6BB;
+			remoteInfo = NeonLightsTestApp;
+		};
+		DB9E5DB02E67280A0073C6BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB9E5D902E6728070073C6BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB9E5D972E6728080073C6BB;
+			remoteInfo = NeonLightsTestApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DB9E5D982E6728080073C6BB /* NeonLightsTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeonLightsTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB9E5DA52E67280A0073C6BB /* NeonLightsTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeonLightsTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB9E5DAF2E67280A0073C6BB /* NeonLightsTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeonLightsTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DB9E5D9A2E6728080073C6BB /* NeonLightsTestApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NeonLightsTestApp;
+			sourceTree = "<group>";
+		};
+		DB9E5DA82E67280A0073C6BB /* NeonLightsTestAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NeonLightsTestAppTests;
+			sourceTree = "<group>";
+		};
+		DB9E5DB22E67280A0073C6BB /* NeonLightsTestAppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NeonLightsTestAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DB9E5D952E6728080073C6BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB9E5DA22E67280A0073C6BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB9E5DAC2E67280A0073C6BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DB9E5D8F2E6728070073C6BB = {
+			isa = PBXGroup;
+			children = (
+				DB9E5D9A2E6728080073C6BB /* NeonLightsTestApp */,
+				DB9E5DA82E67280A0073C6BB /* NeonLightsTestAppTests */,
+				DB9E5DB22E67280A0073C6BB /* NeonLightsTestAppUITests */,
+				DB9E5D992E6728080073C6BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DB9E5D992E6728080073C6BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB9E5D982E6728080073C6BB /* NeonLightsTestApp.app */,
+				DB9E5DA52E67280A0073C6BB /* NeonLightsTestAppTests.xctest */,
+				DB9E5DAF2E67280A0073C6BB /* NeonLightsTestAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB9E5D972E6728080073C6BB /* NeonLightsTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB9E5DB92E67280A0073C6BB /* Build configuration list for PBXNativeTarget "NeonLightsTestApp" */;
+			buildPhases = (
+				DB9E5D942E6728080073C6BB /* Sources */,
+				DB9E5D952E6728080073C6BB /* Frameworks */,
+				DB9E5D962E6728080073C6BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DB9E5D9A2E6728080073C6BB /* NeonLightsTestApp */,
+			);
+			name = NeonLightsTestApp;
+			packageProductDependencies = (
+			);
+			productName = NeonLightsTestApp;
+			productReference = DB9E5D982E6728080073C6BB /* NeonLightsTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DB9E5DA42E67280A0073C6BB /* NeonLightsTestAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB9E5DBC2E67280A0073C6BB /* Build configuration list for PBXNativeTarget "NeonLightsTestAppTests" */;
+			buildPhases = (
+				DB9E5DA12E67280A0073C6BB /* Sources */,
+				DB9E5DA22E67280A0073C6BB /* Frameworks */,
+				DB9E5DA32E67280A0073C6BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB9E5DA72E67280A0073C6BB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DB9E5DA82E67280A0073C6BB /* NeonLightsTestAppTests */,
+			);
+			name = NeonLightsTestAppTests;
+			packageProductDependencies = (
+			);
+			productName = NeonLightsTestAppTests;
+			productReference = DB9E5DA52E67280A0073C6BB /* NeonLightsTestAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DB9E5DAE2E67280A0073C6BB /* NeonLightsTestAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB9E5DBF2E67280A0073C6BB /* Build configuration list for PBXNativeTarget "NeonLightsTestAppUITests" */;
+			buildPhases = (
+				DB9E5DAB2E67280A0073C6BB /* Sources */,
+				DB9E5DAC2E67280A0073C6BB /* Frameworks */,
+				DB9E5DAD2E67280A0073C6BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB9E5DB12E67280A0073C6BB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DB9E5DB22E67280A0073C6BB /* NeonLightsTestAppUITests */,
+			);
+			name = NeonLightsTestAppUITests;
+			packageProductDependencies = (
+			);
+			productName = NeonLightsTestAppUITests;
+			productReference = DB9E5DAF2E67280A0073C6BB /* NeonLightsTestAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB9E5D902E6728070073C6BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					DB9E5D972E6728080073C6BB = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					DB9E5DA42E67280A0073C6BB = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = DB9E5D972E6728080073C6BB;
+					};
+					DB9E5DAE2E67280A0073C6BB = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = DB9E5D972E6728080073C6BB;
+					};
+				};
+			};
+			buildConfigurationList = DB9E5D932E6728070073C6BB /* Build configuration list for PBXProject "NeonLightsTestApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DB9E5D8F2E6728070073C6BB;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DB9E5D992E6728080073C6BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB9E5D972E6728080073C6BB /* NeonLightsTestApp */,
+				DB9E5DA42E67280A0073C6BB /* NeonLightsTestAppTests */,
+				DB9E5DAE2E67280A0073C6BB /* NeonLightsTestAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB9E5D962E6728080073C6BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB9E5DA32E67280A0073C6BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB9E5DAD2E67280A0073C6BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DB9E5D942E6728080073C6BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB9E5DA12E67280A0073C6BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB9E5DAB2E67280A0073C6BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DB9E5DA72E67280A0073C6BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB9E5D972E6728080073C6BB /* NeonLightsTestApp */;
+			targetProxy = DB9E5DA62E67280A0073C6BB /* PBXContainerItemProxy */;
+		};
+		DB9E5DB12E67280A0073C6BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB9E5D972E6728080073C6BB /* NeonLightsTestApp */;
+			targetProxy = DB9E5DB02E67280A0073C6BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DB9E5DB72E67280A0073C6BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = XVH47772KV;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DB9E5DB82E67280A0073C6BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = XVH47772KV;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DB9E5DBA2E67280A0073C6BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XVH47772KV;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.onemorecreator.NeonLightsTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB9E5DBB2E67280A0073C6BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XVH47772KV;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.onemorecreator.NeonLightsTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DB9E5DBD2E67280A0073C6BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XVH47772KV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.onemorecreator.NeonLightsTestAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeonLightsTestApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NeonLightsTestApp";
+			};
+			name = Debug;
+		};
+		DB9E5DBE2E67280A0073C6BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XVH47772KV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.onemorecreator.NeonLightsTestAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeonLightsTestApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NeonLightsTestApp";
+			};
+			name = Release;
+		};
+		DB9E5DC02E67280A0073C6BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XVH47772KV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.onemorecreator.NeonLightsTestAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NeonLightsTestApp;
+			};
+			name = Debug;
+		};
+		DB9E5DC12E67280A0073C6BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XVH47772KV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.onemorecreator.NeonLightsTestAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NeonLightsTestApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB9E5D932E6728070073C6BB /* Build configuration list for PBXProject "NeonLightsTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB9E5DB72E67280A0073C6BB /* Debug */,
+				DB9E5DB82E67280A0073C6BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB9E5DB92E67280A0073C6BB /* Build configuration list for PBXNativeTarget "NeonLightsTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB9E5DBA2E67280A0073C6BB /* Debug */,
+				DB9E5DBB2E67280A0073C6BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB9E5DBC2E67280A0073C6BB /* Build configuration list for PBXNativeTarget "NeonLightsTestAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB9E5DBD2E67280A0073C6BB /* Debug */,
+				DB9E5DBE2E67280A0073C6BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB9E5DBF2E67280A0073C6BB /* Build configuration list for PBXNativeTarget "NeonLightsTestAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB9E5DC02E67280A0073C6BB /* Debug */,
+				DB9E5DC12E67280A0073C6BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DB9E5D902E6728070073C6BB /* Project object */;
+}
