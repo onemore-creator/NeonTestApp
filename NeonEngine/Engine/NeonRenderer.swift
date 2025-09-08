@@ -58,7 +58,8 @@ public final class NeonRenderer: NSObject, MTKViewDelegate {
 
     // Debug toggles
     private let DEBUG_BYPASS_COMPOSITE = false     // true → draw stroke directly to screen
-    private let DEBUG_SKIP_BLUR = true             // true → composite stroke directly (no blur)
+    // When false the stroke is blurred and composited to create a glow
+    private let DEBUG_SKIP_BLUR = false            // true → composite stroke directly (no blur)
 
     // Content bounds (in pixel space of incoming geometry)
     private var contentMin = SIMD2<Float>(0, 0)
