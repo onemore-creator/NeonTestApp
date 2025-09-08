@@ -29,6 +29,10 @@ public struct NeonView: UIViewRepresentable {
     }
 
     public func updateUIView(_ uiView: MTKView, context: Context) {
-        // Nothing needed — updates flow through NeonViewModel -> renderer.update(...)
+        // Keep the drawable size in sync with SwiftUI layout changes so Metal
+        // renders at the correct resolution and aspect ratio.
+        let scale = uiView.contentScaleFactor
+        uiView.drawableSize = CGSize(width: uiView.bounds.width * scale,
+                                     height: uiView.bounds.height * scale)
     }
 }

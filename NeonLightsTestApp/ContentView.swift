@@ -14,7 +14,10 @@ struct ContentView: View {
     init() {
         let device = MTLCreateSystemDefaultDevice()!
         let renderer = NeonRenderer(device: device)
-        _vm = StateObject(wrappedValue: NeonViewModel(renderer: renderer))
+        let viewModel = NeonViewModel(renderer: renderer)
+        _vm = StateObject(wrappedValue: viewModel)
+        // Preload the SVG so the renderer has geometry before the view appears.
+        viewModel.loadSVG()
     }
 
     var body: some View {
@@ -22,7 +25,6 @@ struct ContentView: View {
             NeonView(renderer: vm.renderer)
               .background(.black)
               .frame(maxWidth: .infinity, maxHeight: .infinity)  // <— important
-              .onAppear { vm.loadSVG() }
         }
     }
 }
