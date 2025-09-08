@@ -40,8 +40,10 @@ vertex StrokeVSOut stroke_vs(StrokeVSIn in [[stage_in]],
 fragment half4 stroke_fs(StrokeVSOut in [[stage_in]],
                          constant float3& neonColor [[buffer(0)]])
 {
-    // Use a strong color for sanity
-    return half4(half3(neonColor), 1.0);
+    // edgeDist is 0 at the centre line and 1 at the outer edge.
+    float t = clamp(1.0 - in.edgeDist, 0.0, 1.0);
+    float core = pow(t, 3.0); // bright core with soft falloff
+    return half4(half3(neonColor) * core, core);
 }
 
 // ====== Fullscreen composite ======

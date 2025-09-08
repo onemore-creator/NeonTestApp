@@ -15,6 +15,9 @@ import UIKit          // for UIColor bridge
 final class NeonViewModel: ObservableObject {
     @Published var color: Color = .cyan
     let renderer: NeonRenderer
+    // Hold onto the parsed layer to ensure SwiftSVG finishes its asynchronous
+    // work; it will be released once tessellation completes.
+    private var svgRoot: CALayer?
 
     init(renderer: NeonRenderer) { self.renderer = renderer }
 
@@ -25,25 +28,34 @@ final class NeonViewModel: ObservableObject {
         renderer.update(settings: s)
     }
 
-    /// Load inline SVG, parse with SwiftSVG, extract paths, tessellate to a simple stroke mesh.
-    func loadDefaultSVG() {
-        let svgText =
-        """
-        <?xml version="1.0" encoding="utf-8"?>
-        <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 18H7M10 18H21M5 21H12M16 21H19M8.8 15C6.14903 15 4 12.9466 4 10.4137C4 8.31435 5.6 6.375 8 6C8.75283 4.27403 10.5346 3 12.6127 3C15.2747 3 17.4504 4.99072 17.6 7.5C19.0127 8.09561 20 9.55741 20 11.1402C20 13.2719 18.2091 15 16 15L8.8 15Z"
-                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        """
-
-        guard let data = svgText.data(using: .utf8) else {
-            print("❌ Could not encode SVG text as UTF-8")
-            return
+    /// Load an SVG file, parse with SwiftSVG, extract paths and tessellate to a stroke mesh.
+    /// - Parameter name: Resource name (without extension) inside the app bundle.
+    func loadSVG(named name: String = "cloud") {
+        let data: Data
+        if let url = Bundle.main.url(forResource: name, withExtension: "svg"),
+           let file = try? Data(contentsOf: url) {
+            data = file
+        } else {
+            // Fallback to an inline SVG so the demo still works if the file is missing.
+            let svgText = """
+            <?xml version=\"1.0\" encoding=\"utf-8\"?>
+            <svg width=\"800px\" height=\"800px\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">
+              <path d=\"M3 18H7M10 18H21M5 21H12M16 21H19M8.8 15C6.14903 15 4 12.9466 4 10.4137C4 8.31435 5.6 6.375 8 6C8.75283 4.27403 10.5346 3 12.6127 3C15.2747 3 17.4504 4.99072 17.6 7.5C19.0127 8.09561 20 9.55741 20 11.1402C20 13.2719 18.2091 15 16 15L8.8 15Z\"
+                    stroke=\"#000000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>
+            </svg>
+            """
+            guard let inline = svgText.data(using: .utf8) else {
+                print("❌ Could not load SVG data")
+                return
+            }
+            data = inline
         }
 
-        // Parse async into an SVGLayer (SwiftSVG completion runs on main)
+        // Parse async into an SVGLayer (SwiftSVG completion runs on main).
+        // Store the root layer so it isn't deallocated before parsing finishes.
         let targetSize = CGSize(width: 512, height: 512)
-        _ = CALayer(SVGData: data) { svgLayer in
+        svgRoot = CALayer(SVGData: data) { [weak self] svgLayer in
+            guard let self else { return }
             // Outline-only; scale to a convenient pixel space for our pipeline
             svgLayer.fillColor = UIColor.clear.cgColor
             svgLayer.resizeToFit(CGRect(origin: .zero, size: targetSize))
@@ -69,13 +81,14 @@ final class NeonViewModel: ObservableObject {
 
             // 3) Tessellate to a simple quad-strip stroke mesh
             let result = tessellatePaths(paths, halfWidth: 2.0, tolerance: 0.75)
-            print("✅ Mesh uploaded: \(result.vertices.count) verts, \(result.indices.count) indices")
 
             // 4) Upload geometry and bounds; then apply current color
             self.renderer.updateMesh(vertices: result.vertices, indices: result.indices)
             // Requires you added: public func updateContentBounds(min:max:)
             self.renderer.updateContentBounds(min: minP, max: maxP)
             self.apply()
+            // Release the temporary layer now that we're done with it
+            self.svgRoot = nil
         }
     }
 }

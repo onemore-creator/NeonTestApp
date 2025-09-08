@@ -9,10 +9,8 @@ import SwiftUI
 import NeonEngine
 
 struct ContentView: View {
-    @State private var phase: Float = 0.0
-    static let screenSize = UIScreen.main.bounds.size
-    @StateObject private var vm = NeonViewModel(renderer: NeonRenderer(device: MTLCreateSystemDefaultDevice()!))
-    
+    @StateObject private var vm: NeonViewModel
+
     init() {
         let device = MTLCreateSystemDefaultDevice()!
         let renderer = NeonRenderer(device: device)
@@ -24,7 +22,7 @@ struct ContentView: View {
             NeonView(renderer: vm.renderer)
               .background(.black)
               .frame(maxWidth: .infinity, maxHeight: .infinity)  // <— important
-              .onAppear { vm.loadDefaultSVG(); vm.apply() }
+              .onAppear { vm.loadSVG() }
         }
     }
 }
@@ -43,7 +41,7 @@ struct ControlsView: View {
                 }
 
             Button("Reload SVG") {
-                vm.loadDefaultSVG()
+                vm.loadSVG()
                 vm.apply()
             }
 
