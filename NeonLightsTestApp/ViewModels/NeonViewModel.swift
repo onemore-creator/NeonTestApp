@@ -71,11 +71,13 @@ final class NeonViewModel: ObservableObject {
             var minP = SIMD2<Float>( Float.greatestFiniteMagnitude,  Float.greatestFiniteMagnitude)
             var maxP = SIMD2<Float>(-Float.greatestFiniteMagnitude, -Float.greatestFiniteMagnitude)
             for path in paths {
-                let pts = flattenPath(path, tolerance: 0.75)
-                for cg in pts {
-                    let p = SIMD2<Float>(Float(cg.x), Float(cg.y))
-                    minP = SIMD2<Float>(min(minP.x, p.x), min(minP.y, p.y))
-                    maxP = SIMD2<Float>(max(maxP.x, p.x), max(maxP.y, p.y))
+                let polylines = flattenPath(path, tolerance: 0.75)
+                for line in polylines {
+                    for cg in line {
+                        let p = SIMD2<Float>(Float(cg.x), Float(cg.y))
+                        minP = SIMD2<Float>(min(minP.x, p.x), min(minP.y, p.y))
+                        maxP = SIMD2<Float>(max(maxP.x, p.x), max(maxP.y, p.y))
+                    }
                 }
             }
 
@@ -109,30 +111,36 @@ private func tessellatePaths(_ paths: [CGPath],
     var idx: UInt16 = 0
 
     for path in paths {
-        let pts = flattenPath(path, tolerance: tolerance)
-        guard pts.count >= 2 else { continue }
+        // Flatten each path into independent polylines. Many SVG paths contain
+        // multiple subpaths; treating them individually avoids stray
+        // connections between unrelated contours and ensures closed shapes
+        // receive a final segment linking the last point back to the first.
+        let polylines = flattenPath(path, tolerance: tolerance)
+        for pts in polylines {
+            guard pts.count >= 2 else { continue }
 
-        for i in 0..<(pts.count - 1) {
-            let p0cg = pts[i]
-            let p1cg = pts[i + 1]
+            for i in 0..<(pts.count - 1) {
+                let p0cg = pts[i]
+                let p1cg = pts[i + 1]
 
-            let p0 = SIMD2<Float>(Float(p0cg.x), Float(p0cg.y))
-            let p1 = SIMD2<Float>(Float(p1cg.x), Float(p1cg.y))
+                let p0 = SIMD2<Float>(Float(p0cg.x), Float(p0cg.y))
+                let p1 = SIMD2<Float>(Float(p1cg.x), Float(p1cg.y))
 
-            let quad = makeQuadStrip(p0: p0, p1: p1, halfWidth: halfWidth)
+                let quad = makeQuadStrip(p0: p0, p1: p1, halfWidth: halfWidth)
 
-            vertices.append(quad.v0)
-            vertices.append(quad.v1)
-            vertices.append(quad.v2)
-            vertices.append(quad.v3)
+                vertices.append(quad.v0)
+                vertices.append(quad.v1)
+                vertices.append(quad.v2)
+                vertices.append(quad.v3)
 
-            indices.append(idx + 0)
-            indices.append(idx + 1)
-            indices.append(idx + 2)
-            indices.append(idx + 2)
-            indices.append(idx + 1)
-            indices.append(idx + 3)
-            idx &+= 4
+                indices.append(idx + 0)
+                indices.append(idx + 1)
+                indices.append(idx + 2)
+                indices.append(idx + 2)
+                indices.append(idx + 1)
+                indices.append(idx + 3)
+                idx &+= 4
+            }
         }
     }
 
@@ -182,24 +190,35 @@ private func collectPaths(from layer: CALayer, into out: inout [CGPath]) {
     layer.sublayers?.forEach { collectPaths(from: $0, into: &out) }
 }
 
-private func flattenPath(_ path: CGPath, tolerance: CGFloat) -> [CGPoint] {
-    var pts: [CGPoint] = []
+private func flattenPath(_ path: CGPath, tolerance: CGFloat) -> [[CGPoint]] {
+    // Break the path into a series of polylines, one per subpath. This avoids
+    // joining unrelated contours and makes it easy to append the starting point
+    // at the end of closed paths so the stroke fully wraps around.
+    var polylines: [[CGPoint]] = []
+    var currentLine: [CGPoint] = []
     var current: CGPoint = .zero
+    var first: CGPoint = .zero
+    var hasCurrent = false
 
     path.applyWithBlock { ep in
         let e = ep.pointee
         switch e.type {
         case .moveToPoint:
+            if !currentLine.isEmpty { polylines.append(currentLine); currentLine = [] }
             let p = e.points[0]
             current = p
-            pts.append(p)
+            first = p
+            hasCurrent = true
+            currentLine.append(p)
 
         case .addLineToPoint:
+            guard hasCurrent else { return }
             let p = e.points[0]
             current = p
-            pts.append(p)
+            currentLine.append(p)
 
         case .addQuadCurveToPoint:
+            guard hasCurrent else { return }
             let c   = e.points[0]
             let end = e.points[1]
             let dx = end.x - current.x
@@ -213,12 +232,13 @@ private func flattenPath(_ path: CGPath, tolerance: CGFloat) -> [CGPoint] {
                 let u = 1 - t
                 let x = u*u*current.x + 2*u*t*c.x + t*t*end.x
                 let y = u*u*current.y + 2*u*t*c.y + t*t*end.y
-                pts.append(CGPoint(x: x, y: y))
+                currentLine.append(CGPoint(x: x, y: y))
                 i += 1
             }
             current = end
 
         case .addCurveToPoint:
+            guard hasCurrent else { return }
             let c1  = e.points[0]
             let c2  = e.points[1]
             let end = e.points[2]
@@ -241,20 +261,26 @@ private func flattenPath(_ path: CGPath, tolerance: CGFloat) -> [CGPoint] {
                     3*u*u*t*c1.y   +
                     3*u*t*t*c2.y   +
                     t*t*t*end.y
-                pts.append(CGPoint(x: x, y: y))
+                currentLine.append(CGPoint(x: x, y: y))
                 i += 1
             }
             current = end
 
         case .closeSubpath:
-            break
+            if hasCurrent {
+                currentLine.append(first) // close the loop
+                polylines.append(currentLine)
+                currentLine = []
+                hasCurrent = false
+            }
 
         @unknown default:
             break
         }
     }
 
-    return pts
+    if !currentLine.isEmpty { polylines.append(currentLine) }
+    return polylines
 }
 
 // MARK: - Color helper
