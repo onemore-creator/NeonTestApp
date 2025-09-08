@@ -6,6 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DB9E5DD02E6728F60073C6BB /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = DB9E5DCF2E6728F60073C6BB /* SVGKit */; };
+		DB9E5DD22E6728F60073C6BB /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DB9E5DD12E6728F60073C6BB /* SVGKitSwift */; };
+		DBF097A72E6EFB9500C05E6C /* NeonEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF0979C2E6EFB9500C05E6C /* NeonEngine.framework */; };
+		DBF097B12E6EFB9500C05E6C /* NeonEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF0979C2E6EFB9500C05E6C /* NeonEngine.framework */; };
+		DBF097B22E6EFB9500C05E6C /* NeonEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBF0979C2E6EFB9500C05E6C /* NeonEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DBF097E72E6F082E00C05E6C /* SwiftSVG in Frameworks */ = {isa = PBXBuildFile; productRef = DBF097E62E6F082E00C05E6C /* SwiftSVG */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		DB9E5DA62E67280A0073C6BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,12 +30,49 @@
 			remoteGlobalIDString = DB9E5D972E6728080073C6BB;
 			remoteInfo = NeonLightsTestApp;
 		};
+		DBF097A82E6EFB9500C05E6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB9E5D902E6728070073C6BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBF0979B2E6EFB9500C05E6C;
+			remoteInfo = NeonEngine;
+		};
+		DBF097AA2E6EFB9500C05E6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB9E5D902E6728070073C6BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB9E5D972E6728080073C6BB;
+			remoteInfo = NeonLightsTestApp;
+		};
+		DBF097AF2E6EFB9500C05E6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB9E5D902E6728070073C6BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBF0979B2E6EFB9500C05E6C;
+			remoteInfo = NeonEngine;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DBF097B32E6EFB9500C05E6C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DBF097B22E6EFB9500C05E6C /* NeonEngine.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DB9E5D982E6728080073C6BB /* NeonLightsTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeonLightsTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9E5DA52E67280A0073C6BB /* NeonLightsTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeonLightsTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9E5DAF2E67280A0073C6BB /* NeonLightsTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeonLightsTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBF0979C2E6EFB9500C05E6C /* NeonEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NeonEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBF097A62E6EFB9500C05E6C /* NeonEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeonEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -45,6 +91,21 @@
 			path = NeonLightsTestAppUITests;
 			sourceTree = "<group>";
 		};
+		DB9E5DC42E67285F0073C6BB /* NeonEngine */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NeonEngine;
+			sourceTree = "<group>";
+		};
+		DBF0979D2E6EFB9500C05E6C /* NeonEngine */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NeonEngine;
+			sourceTree = "<group>";
+		};
+		DBF097AC2E6EFB9500C05E6C /* NeonEngineTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NeonEngineTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +113,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB9E5DD22E6728F60073C6BB /* SVGKitSwift in Frameworks */,
+				DBF097E72E6F082E00C05E6C /* SwiftSVG in Frameworks */,
+				DB9E5DD02E6728F60073C6BB /* SVGKit in Frameworks */,
+				DBF097B12E6EFB9500C05E6C /* NeonEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +134,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBF097992E6EFB9500C05E6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBF097A32E6EFB9500C05E6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBF097A72E6EFB9500C05E6C /* NeonEngine.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -76,8 +156,11 @@
 			isa = PBXGroup;
 			children = (
 				DB9E5D9A2E6728080073C6BB /* NeonLightsTestApp */,
+				DB9E5DC42E67285F0073C6BB /* NeonEngine */,
 				DB9E5DA82E67280A0073C6BB /* NeonLightsTestAppTests */,
 				DB9E5DB22E67280A0073C6BB /* NeonLightsTestAppUITests */,
+				DBF0979D2E6EFB9500C05E6C /* NeonEngine */,
+				DBF097AC2E6EFB9500C05E6C /* NeonEngineTests */,
 				DB9E5D992E6728080073C6BB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,11 +171,23 @@
 				DB9E5D982E6728080073C6BB /* NeonLightsTestApp.app */,
 				DB9E5DA52E67280A0073C6BB /* NeonLightsTestAppTests.xctest */,
 				DB9E5DAF2E67280A0073C6BB /* NeonLightsTestAppUITests.xctest */,
+				DBF0979C2E6EFB9500C05E6C /* NeonEngine.framework */,
+				DBF097A62E6EFB9500C05E6C /* NeonEngineTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DBF097972E6EFB9500C05E6C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		DB9E5D972E6728080073C6BB /* NeonLightsTestApp */ = {
@@ -102,16 +197,21 @@
 				DB9E5D942E6728080073C6BB /* Sources */,
 				DB9E5D952E6728080073C6BB /* Frameworks */,
 				DB9E5D962E6728080073C6BB /* Resources */,
+				DBF097B32E6EFB9500C05E6C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DBF097B02E6EFB9500C05E6C /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				DB9E5D9A2E6728080073C6BB /* NeonLightsTestApp */,
 			);
 			name = NeonLightsTestApp;
 			packageProductDependencies = (
+				DB9E5DCF2E6728F60073C6BB /* SVGKit */,
+				DB9E5DD12E6728F60073C6BB /* SVGKitSwift */,
+				DBF097E62E6F082E00C05E6C /* SwiftSVG */,
 			);
 			productName = NeonLightsTestApp;
 			productReference = DB9E5D982E6728080073C6BB /* NeonLightsTestApp.app */;
@@ -163,6 +263,54 @@
 			productReference = DB9E5DAF2E67280A0073C6BB /* NeonLightsTestAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		DBF0979B2E6EFB9500C05E6C /* NeonEngine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBF097B82E6EFB9500C05E6C /* Build configuration list for PBXNativeTarget "NeonEngine" */;
+			buildPhases = (
+				DBF097972E6EFB9500C05E6C /* Headers */,
+				DBF097982E6EFB9500C05E6C /* Sources */,
+				DBF097992E6EFB9500C05E6C /* Frameworks */,
+				DBF0979A2E6EFB9500C05E6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DB9E5DC42E67285F0073C6BB /* NeonEngine */,
+				DBF0979D2E6EFB9500C05E6C /* NeonEngine */,
+			);
+			name = NeonEngine;
+			packageProductDependencies = (
+			);
+			productName = NeonEngine;
+			productReference = DBF0979C2E6EFB9500C05E6C /* NeonEngine.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DBF097A52E6EFB9500C05E6C /* NeonEngineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBF097B92E6EFB9500C05E6C /* Build configuration list for PBXNativeTarget "NeonEngineTests" */;
+			buildPhases = (
+				DBF097A22E6EFB9500C05E6C /* Sources */,
+				DBF097A32E6EFB9500C05E6C /* Frameworks */,
+				DBF097A42E6EFB9500C05E6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DBF097A92E6EFB9500C05E6C /* PBXTargetDependency */,
+				DBF097AB2E6EFB9500C05E6C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DBF097AC2E6EFB9500C05E6C /* NeonEngineTests */,
+			);
+			name = NeonEngineTests;
+			packageProductDependencies = (
+			);
+			productName = NeonEngineTests;
+			productReference = DBF097A62E6EFB9500C05E6C /* NeonEngineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,6 +332,13 @@
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = DB9E5D972E6728080073C6BB;
 					};
+					DBF0979B2E6EFB9500C05E6C = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					DBF097A52E6EFB9500C05E6C = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = DB9E5D972E6728080073C6BB;
+					};
 				};
 			};
 			buildConfigurationList = DB9E5D932E6728070073C6BB /* Build configuration list for PBXProject "NeonLightsTestApp" */;
@@ -195,6 +350,10 @@
 			);
 			mainGroup = DB9E5D8F2E6728070073C6BB;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DB9E5DCE2E6728F50073C6BB /* XCRemoteSwiftPackageReference "SVGKit" */,
+				DBF097E52E6F082E00C05E6C /* XCRemoteSwiftPackageReference "SwiftSVG" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DB9E5D992E6728080073C6BB /* Products */;
 			projectDirPath = "";
@@ -203,6 +362,8 @@
 				DB9E5D972E6728080073C6BB /* NeonLightsTestApp */,
 				DB9E5DA42E67280A0073C6BB /* NeonLightsTestAppTests */,
 				DB9E5DAE2E67280A0073C6BB /* NeonLightsTestAppUITests */,
+				DBF0979B2E6EFB9500C05E6C /* NeonEngine */,
+				DBF097A52E6EFB9500C05E6C /* NeonEngineTests */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +384,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DB9E5DAD2E67280A0073C6BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBF0979A2E6EFB9500C05E6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBF097A42E6EFB9500C05E6C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +428,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBF097982E6EFB9500C05E6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBF097A22E6EFB9500C05E6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +454,21 @@
 			isa = PBXTargetDependency;
 			target = DB9E5D972E6728080073C6BB /* NeonLightsTestApp */;
 			targetProxy = DB9E5DB02E67280A0073C6BB /* PBXContainerItemProxy */;
+		};
+		DBF097A92E6EFB9500C05E6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBF0979B2E6EFB9500C05E6C /* NeonEngine */;
+			targetProxy = DBF097A82E6EFB9500C05E6C /* PBXContainerItemProxy */;
+		};
+		DBF097AB2E6EFB9500C05E6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB9E5D972E6728080073C6BB /* NeonLightsTestApp */;
+			targetProxy = DBF097AA2E6EFB9500C05E6C /* PBXContainerItemProxy */;
+		};
+		DBF097B02E6EFB9500C05E6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBF0979B2E6EFB9500C05E6C /* NeonEngine */;
+			targetProxy = DBF097AF2E6EFB9500C05E6C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -397,6 +601,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = XVH47772KV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -425,6 +630,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = XVH47772KV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -518,6 +724,112 @@
 			};
 			name = Release;
 		};
+		DBF097B42E6EFB9500C05E6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "NeonEngine/Engine/NeonMetalView.swift NeonEngine/Engine/NeonRenderer.swift";
+				DEVELOPMENT_TEAM = XVH47772KV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = org.onemorecreator.NeonEngine;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DBF097B52E6EFB9500C05E6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "NeonEngine/Engine/NeonMetalView.swift NeonEngine/Engine/NeonRenderer.swift";
+				DEVELOPMENT_TEAM = XVH47772KV;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = org.onemorecreator.NeonEngine;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DBF097B62E6EFB9500C05E6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XVH47772KV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.onemorecreator.NeonEngineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeonLightsTestApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NeonLightsTestApp";
+			};
+			name = Debug;
+		};
+		DBF097B72E6EFB9500C05E6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XVH47772KV;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.onemorecreator.NeonEngineTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeonLightsTestApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NeonLightsTestApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -557,7 +869,62 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		DBF097B82E6EFB9500C05E6C /* Build configuration list for PBXNativeTarget "NeonEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBF097B42E6EFB9500C05E6C /* Debug */,
+				DBF097B52E6EFB9500C05E6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBF097B92E6EFB9500C05E6C /* Build configuration list for PBXNativeTarget "NeonEngineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBF097B62E6EFB9500C05E6C /* Debug */,
+				DBF097B72E6EFB9500C05E6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB9E5DCE2E6728F50073C6BB /* XCRemoteSwiftPackageReference "SVGKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVGKit/SVGKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		DBF097E52E6F082E00C05E6C /* XCRemoteSwiftPackageReference "SwiftSVG" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mchoe/SwiftSVG";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB9E5DCF2E6728F60073C6BB /* SVGKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB9E5DCE2E6728F50073C6BB /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKit;
+		};
+		DB9E5DD12E6728F60073C6BB /* SVGKitSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB9E5DCE2E6728F50073C6BB /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKitSwift;
+		};
+		DBF097E62E6F082E00C05E6C /* SwiftSVG */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBF097E52E6F082E00C05E6C /* XCRemoteSwiftPackageReference "SwiftSVG" */;
+			productName = SwiftSVG;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB9E5D902E6728070073C6BB /* Project object */;
 }
