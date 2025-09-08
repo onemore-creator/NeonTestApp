@@ -18,11 +18,13 @@ struct ContentView: View {
     }
 
     var body: some View {
-        VStack {
+        ZStack(alignment: .bottom) {
             NeonView(renderer: vm.renderer)
-              .background(.black)
-              .frame(maxWidth: .infinity, maxHeight: .infinity)  // <— important
-              .onAppear { vm.loadSVG() }
+                .background(.black)
+                .ignoresSafeArea()
+                .onAppear { vm.loadSVG() }
+
+            ControlsView(vm: vm)
         }
     }
 }
