@@ -21,8 +21,9 @@ public struct NeonView: UIViewRepresentable {
     let renderer: NeonRenderer
 
     public func makeUIView(context: Context) -> MTKView {
-        let view = MTKView(frame: .zero, device: MTLCreateSystemDefaultDevice())
-        // Configure the MTKView and attach the renderer
+        // Create the MTKView using the same device as the renderer to ensure
+        // all Metal resources are compatible.
+        let view = MTKView(frame: .zero, device: renderer.device)
         renderer.configure(view: view)
         return view
     }

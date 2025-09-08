@@ -31,7 +31,9 @@ struct ViewUniforms {
 public final class NeonRenderer: NSObject, MTKViewDelegate {
 
     // MARK: Metal objects
-    private let device: MTLDevice
+    /// Metal device used for all rendering. Exposed so the hosting view can
+    /// create an `MTKView` with the same device to avoid mismatches.
+    public let device: MTLDevice
     private let queue: MTLCommandQueue
     private var library: MTLLibrary!
 

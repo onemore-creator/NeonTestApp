@@ -15,6 +15,9 @@ import UIKit          // for UIColor bridge
 final class NeonViewModel: ObservableObject {
     @Published var color: Color = .cyan
     let renderer: NeonRenderer
+    // Hold onto the parsed layer to ensure SwiftSVG finishes its asynchronous
+    // work; it will be released once tessellation completes.
+    private var svgRoot: CALayer?
 
     init(renderer: NeonRenderer) { self.renderer = renderer }
 
@@ -48,9 +51,11 @@ final class NeonViewModel: ObservableObject {
             data = inline
         }
 
-        // Parse async into an SVGLayer (SwiftSVG completion runs on main)
+        // Parse async into an SVGLayer (SwiftSVG completion runs on main).
+        // Store the root layer so it isn't deallocated before parsing finishes.
         let targetSize = CGSize(width: 512, height: 512)
-        _ = CALayer(SVGData: data) { svgLayer in
+        svgRoot = CALayer(SVGData: data) { [weak self] svgLayer in
+            guard let self else { return }
             // Outline-only; scale to a convenient pixel space for our pipeline
             svgLayer.fillColor = UIColor.clear.cgColor
             svgLayer.resizeToFit(CGRect(origin: .zero, size: targetSize))
@@ -76,13 +81,14 @@ final class NeonViewModel: ObservableObject {
 
             // 3) Tessellate to a simple quad-strip stroke mesh
             let result = tessellatePaths(paths, halfWidth: 2.0, tolerance: 0.75)
-            print("✅ Mesh uploaded: \(result.vertices.count) verts, \(result.indices.count) indices")
 
             // 4) Upload geometry and bounds; then apply current color
             self.renderer.updateMesh(vertices: result.vertices, indices: result.indices)
             // Requires you added: public func updateContentBounds(min:max:)
             self.renderer.updateContentBounds(min: minP, max: maxP)
             self.apply()
+            // Release the temporary layer now that we're done with it
+            self.svgRoot = nil
         }
     }
 }
