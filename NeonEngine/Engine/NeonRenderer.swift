@@ -80,11 +80,13 @@ public final class NeonRenderer: NSObject, MTKViewDelegate {
         self.queue = device.makeCommandQueue()!
         self.screenPixelFormat = screenPixelFormat
         super.init()
+        print("🛠 NeonRenderer initialized with device \(device.name)")
         self.library = try! NeonRenderer.loadMetalLibrary(device: device)
         buildPipelines()
     }
 
     public func configure(view: MTKView) {
+        print("🧩 Configuring MTKView")
         view.device = device
         view.colorPixelFormat = screenPixelFormat
         view.framebufferOnly = false
@@ -99,6 +101,7 @@ public final class NeonRenderer: NSObject, MTKViewDelegate {
 
     public func updateMesh(vertices: [StrokeVertex], indices: [UInt16]) {
         indexCount = indices.count
+        print("🧱 Received mesh: \(vertices.count) verts, \(indices.count) indices")
         guard indexCount > 0, !vertices.isEmpty else {
             vbuf = nil; ibuf = nil; indexCount = 0
             print("⚠️ Empty mesh")
@@ -116,18 +119,26 @@ public final class NeonRenderer: NSObject, MTKViewDelegate {
         print("✅ Mesh uploaded: \(vertices.count) verts, \(indices.count) indices")
     }
 
-    public func update(settings: NeonSettings) { self.settings = settings }
+    public func update(settings: NeonSettings) {
+        self.settings = settings
+        print("🎛️ Updated settings")
+    }
 
     // MARK: MTKViewDelegate
 
     public func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+        print("🖼️ Drawable size will change: \(size)")
         allocateOffscreen(size: size)
     }
 
     public func draw(in view: MTKView) {
+        print("🎬 draw call - size: \(view.drawableSize)")
         guard let drawable = view.currentDrawable,
               let cmd = queue.makeCommandBuffer()
-        else { return }
+        else {
+            print("❌ Unable to obtain drawable or command buffer")
+            return
+        }
 
         // Ensure offscreen targets exist and match drawable size
         let size = view.drawableSize
@@ -137,6 +148,7 @@ public final class NeonRenderer: NSObject, MTKViewDelegate {
         }
 
         guard let vbuf, let ibuf, indexCount > 0 else {
+            print("⚠️ No mesh to draw; clearing screen")
             // Nothing to draw; just clear screen
             if let rpd = view.currentRenderPassDescriptor {
                 let enc = cmd.makeRenderCommandEncoder(descriptor: rpd)!
@@ -246,6 +258,7 @@ public final class NeonRenderer: NSObject, MTKViewDelegate {
 
         cmd.present(drawable)
         cmd.commit()
+        print("✅ Frame submitted")
     }
 
     // MARK: Private

@@ -23,6 +23,7 @@ public struct NeonView: UIViewRepresentable {
     public func makeUIView(context: Context) -> MTKView {
         // Create the MTKView using the same device as the renderer to ensure
         // all Metal resources are compatible.
+        print("🪟 Creating MTKView")
         let view = MTKView(frame: .zero, device: renderer.device)
         renderer.configure(view: view)
         return view
@@ -32,7 +33,9 @@ public struct NeonView: UIViewRepresentable {
         // Keep the drawable size in sync with SwiftUI layout changes so Metal
         // renders at the correct resolution and aspect ratio.
         let scale = uiView.contentScaleFactor
-        uiView.drawableSize = CGSize(width: uiView.bounds.width * scale,
-                                     height: uiView.bounds.height * scale)
+        let size = CGSize(width: uiView.bounds.width * scale,
+                          height: uiView.bounds.height * scale)
+        uiView.drawableSize = size
+        print("📐 updateUIView -> drawableSize: \(size)")
     }
 }

@@ -25,16 +25,19 @@ final class NeonViewModel: ObservableObject {
     func apply() {
         var s = NeonSettings()
         s.color = color.toSIMD3()
+        print("🎨 Applying color \(color)")
         renderer.update(settings: s)
     }
 
     /// Load an SVG file, parse with SwiftSVG, extract paths and tessellate to a stroke mesh.
     /// - Parameter name: Resource name (without extension) inside the app bundle.
     func loadSVG(named name: String = "cloud") {
+        print("📥 Loading SVG named \(name)")
         let data: Data
         if let url = Bundle.main.url(forResource: name, withExtension: "svg"),
            let file = try? Data(contentsOf: url) {
             data = file
+            print("📄 Loaded SVG from bundle (\(file.count) bytes)")
         } else {
             // Fallback to an inline SVG so the demo still works if the file is missing.
             let svgText = """
@@ -48,6 +51,7 @@ final class NeonViewModel: ObservableObject {
                 print("❌ Could not load SVG data")
                 return
             }
+            print("ℹ️ Using fallback inline SVG (\(inline.count) bytes)")
             data = inline
         }
 
@@ -56,12 +60,14 @@ final class NeonViewModel: ObservableObject {
         let targetSize = CGSize(width: 512, height: 512)
         svgRoot = CALayer(SVGData: data) { [weak self] svgLayer in
             guard let self else { return }
+            print("🔍 SVG parsed, resizing...")
             // Outline-only; scale to a convenient pixel space for our pipeline
             svgLayer.fillColor = UIColor.clear.cgColor
             svgLayer.resizeToFit(CGRect(origin: .zero, size: targetSize))
 
             // 1) Collect paths
             let paths = parseSVGPaths(from: svgLayer)
+            print("🧵 Collected \(paths.count) paths")
             guard !paths.isEmpty else {
                 print("⚠️ No CAShapeLayer paths found in SVG")
                 return
@@ -80,15 +86,18 @@ final class NeonViewModel: ObservableObject {
                     }
                 }
             }
+            print("📐 Content bounds min: \(minP), max: \(maxP)")
 
             // 3) Tessellate to a simple quad-strip stroke mesh
             let result = tessellatePaths(paths, halfWidth: 2.0, tolerance: 0.75)
+            print("✏️ Tessellated \(result.vertices.count) verts, \(result.indices.count) indices")
 
             // 4) Upload geometry and bounds; then apply current color
             self.renderer.updateMesh(vertices: result.vertices, indices: result.indices)
             // Requires you added: public func updateContentBounds(min:max:)
             self.renderer.updateContentBounds(min: minP, max: maxP)
             self.apply()
+            print("✅ SVG load complete")
             // Release the temporary layer now that we're done with it
             self.svgRoot = nil
         }

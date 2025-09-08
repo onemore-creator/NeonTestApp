@@ -12,11 +12,20 @@ struct ContentView: View {
     @StateObject private var vm: NeonViewModel
 
     init() {
-        let device = MTLCreateSystemDefaultDevice()!
+        guard let device = MTLCreateSystemDefaultDevice() else {
+            fatalError("❌ No Metal device available")
+        }
+        print("📱 Using device: \(device.name)")
+
         let renderer = NeonRenderer(device: device)
+        print("🛠 Renderer created")
+
         let viewModel = NeonViewModel(renderer: renderer)
+        print("📦 ViewModel initialized")
         _vm = StateObject(wrappedValue: viewModel)
+
         // Preload the SVG so the renderer has geometry before the view appears.
+        print("📥 Preloading SVG")
         viewModel.loadSVG()
     }
 
