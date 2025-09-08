@@ -31,7 +31,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            NeonView(renderer: vm.renderer)
+            NeonMetalView(renderer: vm.renderer)
               .background(.black)
               .frame(maxWidth: .infinity, maxHeight: .infinity)  // <— important
         }
