@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SVGKit
 
 @main
 struct NeonLightsTestAppApp: App {

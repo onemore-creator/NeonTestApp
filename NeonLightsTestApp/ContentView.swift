@@ -24,7 +24,7 @@ struct ContentView: View {
             NeonView(renderer: vm.renderer)
               .background(.black)
               .frame(maxWidth: .infinity, maxHeight: .infinity)  // <— important
-              .onAppear { vm.loadDefaultSVG(); vm.apply() }
+              .onAppear { vm.loadSVG(); vm.apply() }
         }
     }
 }
@@ -43,7 +43,7 @@ struct ControlsView: View {
                 }
 
             Button("Reload SVG") {
-                vm.loadDefaultSVG()
+                vm.loadSVG()
                 vm.apply()
             }
 
