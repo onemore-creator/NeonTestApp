@@ -36,6 +36,12 @@ public struct NeonView: UIViewRepresentable {
         let size = CGSize(width: uiView.bounds.width * scale,
                           height: uiView.bounds.height * scale)
         uiView.drawableSize = size
+        // Explicitly notify the renderer about the new drawable size so it can
+        // allocate or resize its internal buffers immediately. Relying on
+        // MTKView's delegate callback can be racy when the size changes during
+        // SwiftUI layout updates, leading to a black screen if the renderer
+        // hasn't yet provisioned its textures.
+        renderer.mtkView(uiView, drawableSizeWillChange: size)
         print("📐 updateUIView -> drawableSize: \(size)")
     }
 }
