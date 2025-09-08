@@ -58,8 +58,7 @@ final class NeonViewModel: ObservableObject {
         // Parse async into an SVGLayer (SwiftSVG completion runs on main).
         // Store the root layer so it isn't deallocated before parsing finishes.
         let targetSize = CGSize(width: 512, height: 512)
-        svgRoot = CALayer(SVGData: data) { [weak self] svgLayer in
-            guard let self else { return }
+        svgRoot = CALayer(SVGData: data) { svgLayer in
             print("🔍 SVG parsed, resizing...")
             // Outline-only; scale to a convenient pixel space for our pipeline
             svgLayer.fillColor = UIColor.clear.cgColor
