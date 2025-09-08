@@ -9,7 +9,10 @@ import SwiftUI
 
 @main
 struct NeonLightsTestAppApp: App {
-        
+    init() {
+        print("🚀 NeonLightsTestApp launching")
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
